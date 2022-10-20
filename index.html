@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahorcado SolidGame</title>
+    <link rel="shortcut icon" href="imagenes/isotipo.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+
+<body>
+    <header>
+        <img class="logo"" src="imagenes/imagotipo.png" alt="Nuestro logo" width="120">
+        <div class="top-menu">
+                <h3>Ahorcado</h3>
+        </div>
+    </header>
+    
+    <section class="menu-principal">
+        <div class="titulo">
+            <img class="logo"" src="imagenes/imagotipo.png" alt="Nuestro logo">
+        </div>
+        <div class="menu">
+            <div class="top-menu">
+                <h3>Ahorcado</h3>
+            </div>
+            <span id="btn-jugar" class="btn btn-primary" onclick="empezarJuego()">JUEGO NUEVO</span>
+            <span id="btn-agregarPalabra" class="btn btn-alt-primary" onclick="mostrarAgregarPalabra()">AGREGAR PALABRA</span>
+        </div>
+    </section>
+
+    <section class="agregarPalabra hidden">
+        <div class="form-palabra">
+            <div class="tituloPalabra">
+                <h3>Agregar una nueva palabra</h3>
+            </div>
+            <div>
+                <input id="txt-palabra" class="input" type="text" placeholder="Ingrese una palabra">
+                <span id="input_msg" class="input-msg hidden">Hola</span>
+                <button onclick="agregarPalabra();" class="btn btn-primary">Agregar</button>
+            </div>
+            <button onclick="volver();" class="btn btn-alt-primary">Volver</button>   
+        </div>
+    </section>
+
+    <main class="main">
+        <div class="container">
+            <div class="pantalla">
+                <div id="dibujo" class="dibujo">
+                    <!--<canvas class="lienzo" width="200px" height="200px"></canvas>-->
+                    <img id="con9vidas"class="horca"src="imagenes/con9vidas.png" alt="Horca9">
+                    <img id="con8vidas"class="horca hidden"src="imagenes/con8vidas.png" alt="Horca8">
+                    <img id="con7vidas"class="horca hidden" src="imagenes/con7vidas.png" alt="Horca7">
+                    <img id="con6vidas"class="horca hidden" src="imagenes/con6vidas.png" alt="Horca6">
+                    <img id="con5vidas"class="horca hidden" src="imagenes/con5vidas.png" alt="Horca5">
+                    <img id="con4vidas"class="horca hidden" src="imagenes/con4vidas.png" alt="Horca4">
+                    <img id="con3vidas"class="horca hidden" src="imagenes/con3vidas.png" alt="Horca3">
+                    <img id="con2vidas"class="horca hidden" src="imagenes/con2vidas.png" alt="Horca2">
+                    <img id="con1vida"class="horca hidden" src="imagenes/con1vida.png" alt="Horca1">
+                    <img id="con0vidas"class="horca hidden" src="imagenes/con0vidas.png" alt="Horca0">
+                </div>
+
+                <div id="tablero" class="letras">
+                    
+                </div>
+                <h1 class="mensaje"></h1>
+            </div>
+
+            <div class="panel">
+                <div class="teclado">
+                    <div>
+                        <button onclick="capturaLetra('Q');" id="Q" class="btn-teclado btn-default">Q</button>
+                        <button onclick="capturaLetra('W');" id="W" class="btn-teclado btn-default">W</button>
+                        <button onclick="capturaLetra('E');" id="E" class="btn-teclado btn-default">E</button>
+                        <button onclick="capturaLetra('R');" id="R" class="btn-teclado btn-default">R</button>
+                        <button onclick="capturaLetra('T');" id="T" class="btn-teclado btn-default">T</button>
+                        <button onclick="capturaLetra('Y');" id="Y" class="btn-teclado btn-default">Y</button>
+                        <button onclick="capturaLetra('U');" id="U" class="btn-teclado btn-default">U</button>
+                        <button onclick="capturaLetra('I');" id="I" class="btn-teclado btn-default">I</button>
+                        <button onclick="capturaLetra('O');" id="O" class="btn-teclado btn-default">O</button>
+                        <button onclick="capturaLetra('P');" id="P" class="btn-teclado btn-default">P</button>
+                    </div>
+                    <div>
+                        <button onclick="capturaLetra('A');" id="A" class="btn-teclado btn-default">A</button>
+                        <button onclick="capturaLetra('S');" id="S" class="btn-teclado btn-default">S</button>
+                        <button onclick="capturaLetra('D');" id="D" class="btn-teclado btn-default">D</button>
+                        <button onclick="capturaLetra('F');" id="F" class="btn-teclado btn-default">F</button>
+                        <button onclick="capturaLetra('G');" id="G" class="btn-teclado btn-default">G</button>
+                        <button onclick="capturaLetra('H');" id="H" class="btn-teclado btn-default">H</button>
+                        <button onclick="capturaLetra('J');" id="J" class="btn-teclado btn-default">J</button>
+                        <button onclick="capturaLetra('K');" id="K" class="btn-teclado btn-default">K</button>
+                        <button onclick="capturaLetra('L');" id="L" class="btn-teclado btn-default">L</button>
+                        <button onclick="capturaLetra('Ñ');" id="Ñ" class="btn-teclado btn-default">Ñ</button>
+                    </div>
+                    <div>
+                        <button onclick="capturaLetra('Z');" id="Z" class="btn-teclado btn-default">Z</button>
+                        <button onclick="capturaLetra('X');" id="X" class="btn-teclado btn-default">X</button>
+                        <button onclick="capturaLetra('C');" id="C" class="btn-teclado btn-default">C</button>
+                        <button onclick="capturaLetra('V');" id="V" class="btn-teclado btn-default">V</button>
+                        <button onclick="capturaLetra('B');" id="B" class="btn-teclado btn-default">B</button>
+                        <button onclick="capturaLetra('N');" id="N" class="btn-teclado btn-default">N</button>
+                        <button onclick="capturaLetra('M');" id="M" class="btn-teclado btn-default">M</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="botones">
+                <button class="btn btn-primary btn-small" onclick="iniciaJuego();">Juego nuevo</button>
+                <button class="btn btn-alt-primary btn-small" onclick="volver();">Volver</button>
+            </div>
+            
+        </div>
+    </main>
+    
+    <script src="js/script.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</body>
+
+<footer>
+    <p>
+        <a class="copyrights" href="https://github.com/CJaramillo912">&copy Encriptador SecretScript Develop by Fer Jaramillo.</a>.
+      </p>
+</footer>
+
+</html>
