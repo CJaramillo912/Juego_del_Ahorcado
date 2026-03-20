@@ -273,7 +273,7 @@ function validarVida() {
     }
     
     if(vidas == 0){
-        mensajeJuegoterminado("Juego terminado", "fail");
+        mensajeJuegoterminado("Perdiste, efectivamente eres una perrita", "fail");
     }
     
 }
