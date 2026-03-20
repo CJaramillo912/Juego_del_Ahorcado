@@ -214,7 +214,7 @@ function validarLetra(letra){
 
     //Si ya se acertaron todas las letras
     if(banderaGanar == palabra.length){
-        mensajeJuegoterminado("¡Lo lograste! En un lapso de 24 horas te llegará un regalo a tu cuenta de Steam", "win");
+        mensajeJuegoterminado("¡Lo lograste Brayan! En un lapso de 24 horas te llegará un regalo a tu cuenta de Steam", "win");
     }
 }
 
