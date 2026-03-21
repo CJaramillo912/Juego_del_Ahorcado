@@ -166,6 +166,9 @@ body{
     border-radius: 10px;
     display: none;
     transform: rotate(-20deg);
+    white-space: normal;
+    width: 300px;
+    text-align: center;
 }
 
 .color-fail{
