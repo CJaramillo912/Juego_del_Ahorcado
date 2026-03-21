@@ -365,10 +365,18 @@ footer{
 }
 
 @media (max-width: 1202px) {
-    .top-menu{
-        top: 1.5em;
-        left: 4em;
-    }
+.top-menu{
+    top: 0.8em;
+    left: 4em;
+    width: calc(100% - 4em);
+    text-align: center;
+    font-size: 11px;
+}
+
+.top-menu h3 {
+    font-size: 0.75em;
+    line-height: 1.4;
+}
 
     body{
         background-size: 1900px;
